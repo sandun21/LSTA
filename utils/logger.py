@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 from torch.utils.tensorboard import SummaryWriter
 
-IST = timezone(timedelta(hours=5, minutes=30))
+ST = timezone(timedelta(hours=0, minutes=0))
 
 
 class TBLogger:
@@ -9,7 +9,7 @@ class TBLogger:
         self.writer = SummaryWriter(log_dir=log_dir)
 
     def _timed(self, msg):
-        return f"[{datetime.now(IST).strftime('%Y-%m-%d %H:%M:%S')}] {msg}"
+        return f"[{datetime.now(ST).strftime('%Y-%m-%d %H:%M:%S')}] {msg}"
 
     def log(self, msg=""):
         """Print a plain status message (for capturing by shell to logging."""
